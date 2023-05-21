@@ -1,0 +1,18 @@
+<SW-XXXX-S5328C-EI-HW> disp ip int bri
+*down: administratively down
+^down: standby
+(l): loopback
+(s): spoofing
+(E): E-Trunk down
+The number of interface that is UP in Physical is 3
+The number of interface that is DOWN in Physical is 1
+The number of interface that is UP in Protocol is 3
+The number of interface that is DOWN in Protocol is 1
+
+Interface                         IP Address/Mask      Physical   Protocol
+LoopBack0                         11.11.11.11/32       up         up(s)
+MEth0/0/1                         192.168.103.1/24     down       down
+NULL0                             unassigned           up         up(s)
+Vlanif201                         172.25.1.234/27      up         up
+
+<SW-XXXX-S5328C-EI-HW>

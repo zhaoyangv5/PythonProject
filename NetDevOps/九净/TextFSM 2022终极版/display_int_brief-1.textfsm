@@ -1,0 +1,10 @@
+Value Name (GE\d\S+|NULL\S+|MEth\S+)
+Value PhyState (\S+)
+Value ProtocolState (\S+)
+Value InUti (\S+)
+Value OutUti (\S+)
+Value InErrors (\S+)
+Value OutErrors (\S+)
+
+Start
+ ^${Name}\s+${PhyState}\s+${ProtocolState}\s+${InUti}\s+${OutUti}\s+${InErrors}\s+${OutErrors} -> Record

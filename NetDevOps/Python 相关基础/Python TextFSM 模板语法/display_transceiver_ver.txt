@@ -1,0 +1,43 @@
+<sw>display transceiver ver
+
+GigabitEthernet2/0/1 transceiver information:
+-------------------------------------------------------------
+Common information:
+  Transceiver Type               :UNKNOWN_SFP
+  others
+  Ordering Name                  :
+-------------------------------------------------------------
+Manufacture information:
+  Manu. Serial Number            :TX3031B
+  Manufacturing Date             :2021-07-30
+  Vendor Name                    :FINISAR CORP.
+-------------------------------------------------------------
+Alarm information:
+  The optical module speed does not match the interface speed
+-------------------------------------------------------------
+Diagnostic information:
+  others
+  Transceiver phony alarm               :Yes
+-------------------------------------------------------------
+
+GigabitEthernet11/0/6 transceiver information:
+-------------------------------------------------------------
+Common information:
+  Transceiver Type               :1000_BASE_LX_SFP
+  others
+  Ordering Name                  :
+-------------------------------------------------------------
+Manufacture information:
+  Manu. Serial Number            :A2022331401
+  Manufacturing Date             :2022-06-26
+  Vendor Name                    :HUAWEI
+-------------------------------------------------------------
+Alarm information:
+  RX loss of signal
+  RX power low
+-------------------------------------------------------------
+Diagnostic information:
+  Temperature(C)                        :26
+  others
+  Transceiver phony alarm               :Yes
+-------------------------------------------------------------

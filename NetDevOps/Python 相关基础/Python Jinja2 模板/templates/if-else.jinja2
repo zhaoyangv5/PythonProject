@@ -1,0 +1,21 @@
+{% for intf, params in trunks.items() %}
+ {% if params.action == 'add' %}
+  {% for vlan in params.vlans %}
+   vlan {{ vlan }}
+   interface {{ intf }}
+    port trunk allow-pass vlan {{ vlan }}
+  {% endfor %}
+ {% elif params.action == 'delete' %}
+  interface {{ intf }}
+    {% for vlan in params.vlans %}
+    undo port trunk allow-pass vlan {{ vlan }}
+    q
+   undo vlan {{ vlan }}
+    {% endfor %}
+ {% else %}
+  interface {{ intf }}
+    {% for vlan in params.vlans %}
+    undo port trunk allow-pass vlan {{ vlan }}
+    {% endfor %}
+ {% endif %}
+{% endfor %}

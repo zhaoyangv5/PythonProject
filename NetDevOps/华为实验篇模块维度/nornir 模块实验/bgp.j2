@@ -1,0 +1,12 @@
+{% for i in host.loopbacks %}
+interface LoopBack {{ i.loopback }}
+ip address {{ i.ipaddress }} {{ i.mask }}
+commit
+{% endfor %}
+
+bgp {{ host.asn }}
+peer {{ host.neighbor }} as-number {{ host.remoteas }}
+{% for n in host.networks %}
+network {{ n.net }} {{ n.mask }}
+{% endfor %}
+commit

@@ -1,0 +1,14 @@
+system
+
+sysname Layer3Switch-1-variables
+
+interface Loopback0
+ ip address 192.168.1.1 255.255.255.255
+
+vlan 10
+
+ospf 1 router-id 192.168.1.1
+ area 0
+ network 10.0.1.0 0.0.0.255
+
+

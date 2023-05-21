@@ -1,0 +1,9 @@
+Value version (\S+)
+Value series (\S+)
+Value patch (\S+)
+Value uptime (\d+ day, \d hour, \d+ minutes)
+
+
+Start
+ ^VRP \(R\) software, Version ${version} \(${series} ${patch}\)
+ ^HUAWEI \S+ uptime is ${uptime} -> Record

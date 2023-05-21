@@ -1,0 +1,4 @@
+vlan 20
+ desc Voice
+vlan 30
+ desc Management

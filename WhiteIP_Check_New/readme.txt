@@ -1,0 +1,3 @@
+target文件中放入被匹配的白名单
+source文件夹下放入白名单地址
+运行WhiteIP_CheckV0414.py后，匹配出target中命中的白名单地址

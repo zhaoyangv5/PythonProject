@@ -1,0 +1,37 @@
+---
+#1.nornir_napalm，Windows，华为.py
+#huawei:
+#    platform: huawei_vrp
+
+#2.nornir_netmiko，华为.py
+#huawei:
+#    platform: huawei
+
+
+#3.filter()配合F()高级过滤，华为.py
+#huawei_group1:
+#    platform: huawei
+#
+#huawei_group2:
+#    platform: huawei
+
+#6.设备配置，华为.py
+#huawei_group1:
+#    platform: huawei
+#
+#huawei_group2:
+#    platform: huawei
+
+#7.采集保存，功能封装，华为.py
+#huawei_group1:
+#    platform: huawei_vrp
+#
+#huawei_group2:
+#    platform: huawei_vrp
+
+#8.配合Jinja2，数据下发，华为.py
+huawei_group1:
+    platform: huawei
+
+huawei_group2:
+    platform: huawei

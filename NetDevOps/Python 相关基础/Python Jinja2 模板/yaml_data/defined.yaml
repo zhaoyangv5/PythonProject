@@ -1,0 +1,7 @@
+- id: 192.168.3.3
+  name: Layer3Switch-3-defined
+  ospf:
+    - network: 10.0.1.0 0.0.0.255
+    - network: 10.0.2.0 0.0.0.255
+      area: 2
+    - network: 10.0.3.0 0.0.0.255

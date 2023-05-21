@@ -1,0 +1,16 @@
+{% for intf, params in trunks.items() %}
+    {% if params.vlans is iterable %}
+        {% for vlan in params.vlans %}
+vlan {{ vlan }}
+        {% endfor %}
+interface {{ intf }}
+        {% for vlan in params.vlans %}
+ port trunk allow-pass vlan {{ vlan }}
+        {% endfor %}
+    {% else %}
+vlan {{ params.vlans }}
+interface {{ intf }}
+ port trunk allow-pass vlan {{ params.vlans }}
+    {% endif %}
+ quit
+{% endfor %}

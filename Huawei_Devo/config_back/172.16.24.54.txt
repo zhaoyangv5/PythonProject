@@ -1,0 +1,491 @@
+
+NFJD-PA-OAQ-SW06-S4320-13402#more off
+NFJD-PA-OAQ-SW06-S4320-13402#show running-config
+Building Configuration...done
+
+! Current configuration : 13842 bytes
+!
+! Last configuration change at BEIJING(UTC+08:00) MON SEP 06 16:38:18 2021 by guanli
+! Flash config last updated at BEIJING(UTC+08:00) MON SEP 06 16:38:22 2021 by guanli
+! Configuration version 0.15
+!
+
+!software version 8.3.0.8(R)(integrity)
+!software image file flash0: /flash/sp6-g-8.3.0.8(R).pck
+!compiled on Mar 18 2019, 07:01:19
+
+hostname NFJD-PA-OAQ-SW06-S4320-13402
+            
+
+enable password 067de41da9abe4d26a000d379fda2d845a74b447c297a3ee136e encrypt
+
+privilege EN level 1 command ping 
+privilege EN level 3 command configure 
+privilege CONF level 3 command snmp-server 
+
+
+user xunjian password 7 75552ecddfb6a4fdbe9c15a33cde1e0c39
+user yingjiweihu privilege 15 password 7 c02e7aba0c9086a83124d715d9b4c055c30935da08ab90de100f
+user guanli password 7 d63f31cbbf5172aaada93d45a8787e57a9
+
+ip ctrl-protocol unicast
+ip ctrl-protocol multicast
+
+ip load-sharing per-destination
+ipv6 load-sharing per-destination
+
+ip access-list standard 207
+ 10 permit host 172.16.45.226
+ 15 permit host 172.16.45.227
+ 40 permit host 192.168.101.10
+ 50 permit host 192.168.101.11
+ 60 permit host 192.168.101.12
+ 70 permit host 192.168.101.14
+ 80 permit host 192.168.101.15
+ 90 permit 172.16.23.32 0.0.0.31
+ 100 permit host 192.168.101.31
+ 101 permit host 192.168.101.32
+ 500 deny any
+ exit
+
+ip access-list extended 1002
+ 10 deny icmp any any fragments
+ exit
+
+ip access-list extended 1003
+ 10 deny icmp any any fragments
+ 20 deny udp any any eq 1434
+ 30 deny udp any any eq netbios-ns
+ 40 deny udp any any eq netbios-dgm
+ 50 deny udp any any eq 539
+ 60 deny tcp any any eq 445
+ 70 deny tcp any any eq 5800
+ 80 deny tcp any any eq 5900
+ 90 deny tcp any any eq 9996
+ 100 deny tcp any any eq 4444
+ 110 deny tcp any any eq 539
+ 120 deny tcp any any eq 139
+ 130 deny tcp any any eq 593
+ 140 deny tcp any any eq 135
+ 150 deny tcp any any eq 3389
+ 200 permit tcp any any eq 22
+ 201 permit tcp any any eq 53389
+ exit
+
+
+aaa new-model
+aaa authentication login authen-list radius local
+aaa authentication login AAA_IN local
+aaa authentication connection landesk radius
+aaa authorization exec author-list radius local
+aaa accounting exec account-list start-stop radius
+link-aggregation 1 mode lacp
+
+vlan 1
+ exit
+
+vlan 128,200
+
+
+
+
+voice vlan oui-mac 0001.e300.0000 mask ffff.ff00.0000 name Siemens_phone
+voice vlan oui-mac 0003.6b00.0000 mask ffff.ff00.0000 name Cisco_phone
+voice vlan oui-mac 0004.0d00.0000 mask ffff.ff00.0000 name Avaya_phone
+voice vlan oui-mac 0060.b900.0000 mask ffff.ff00.0000 name Philips/NEC_phone
+voice vlan oui-mac 00d0.1e00.0000 mask ffff.ff00.0000 name Pingtel_phone
+voice vlan oui-mac 00e0.7500.0000 mask ffff.ff00.0000 name Polycom_phone
+voice vlan oui-mac 00e0.bb00.0000 mask ffff.ff00.0000 name 3com_phone
+
+
+
+
+
+
+
+
+!slot_0_S4320-56TC-AC(V1)
+!slot 0
+!cardtype_0_0x2047a381
+interface gigabitethernet0/1
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/2
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/3
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/4
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/5
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/6
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/7
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/8
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/9
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/10
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/11
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/12
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/13
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/14
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/15
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/16
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/17
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/18
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/19
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/20
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/21
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/22
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/23
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/24
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/25
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/26
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/27
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/28
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/29
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/30
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/31
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/32
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/33
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/34
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/35
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/36
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/37
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/38
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/39
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/40
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/41
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/42
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/43
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/44
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/45
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/46
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/47
+ description ShangHaiXinJu_172.16.25.144
+ storm-control broadcast pps 1024
+ switchport access vlan 128
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/48
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface tengigabitethernet0/49
+ speed 10000
+ duplex full
+ exit
+interface tengigabitethernet0/50
+ speed 10000
+ duplex full
+ exit
+interface tengigabitethernet0/51
+ description uT:NFJD-PA-OAQ-SW01/SW02-S7606-13402:1*1G::XGE2/1/0/10_172.16.24.7
+ speed 1000
+ duplex full
+ link-aggregation 1 active
+ exit
+interface tengigabitethernet0/52
+ description uT:NFJD-PA-OAQ-SW01/SW02-S7606-13402:1*1G::XGE1/1/0/10_172.16.24.7
+ speed 1000
+ duplex full
+ link-aggregation 1 active
+ exit
+!end
+
+
+link-aggregation 1
+ description uT:NFJD-PA-OAQ-SW01/SW02-S7606-13402:2*1G::BAGG6_172.16.24.7
+ switchport mode trunk
+ switchport trunk allowed vlan all
+ switchport trunk pvid vlan 1
+ spanning-tree guard loop
+ spanning-tree bpdu filter
+ exit
+
+telnet server disable
+
+ 		                
+
+interface null0
+ exit
+
+
+interface dc0
+ exit
+
+
+interface vlan200
+ description uT:NFJD-PA-OAQ-SW01/SW02-S7606:Vlan200_172.16.24.7
+ ip address 172.16.24.54 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ exit
+
+                                     
+ip route 0.0.0.0 0.0.0.0 172.16.24.62
+
+radius-server host 130.255.167.167 auth-port 1645 acct-port 1646 priority 1 key 7 4fe9bac3d9ca8212
+logging server
+no logging console
+logging source-ip 172.16.24.54
+logging 172.16.23.79 0 5
+logging 172.16.23.41 0 5
+logging 172.16.5.72 0 5
+logging 172.16.102.6 0 5
+logging event
+
+ntp master
+ntp server 172.16.24.7
+clock timezone BEIJING 8
+
+snmp-server start 
+snmp-server view default 1.2 include
+snmp-server view default 1.0.8802 include
+snmp-server view default 1.1.2 include
+snmp-server view default 1.3.111 include
+snmp-server view default 1.3.6.1 include
+snmp-server community b2865e5a3f076c2a82f7ddc8f3eed3c5e1a253410e34442484� view default ro 207
+snmp-server community bd142b2fce9560ff8846f34ebd2d278563302634ffa35ff99e4a� view default rw 207
+snmp-server community a221c9aa70b8786fac� view default ro 207
+snmp-server community 626064f9ae0f8dfd98� view default ro
+snmp-server group ChinaMobile_Manager_Write v3 authpriv read default write default notify default 
+snmp-server user ChinaMobile_Manager_Write ChinaMobile_Manager_Write v3 auth md5 083b9902e8a56217afa2a6dac9015889aa1f9419d9935d11b9ae� encrypt des 067bb14ced9fdad83a5e3b28f5f00c825e5fbc57dca9e5de2c52�
+snmp-server context ChinaMobile_Manager_Write
+snmp-server enable traps filesystem utilization
+snmp-server host 172.16.14.1 traps community 4b63aa8cee293c632e01e36fb9b6ee23d447a797df1a146d28� version 2
+snmp-server host 172.16.102.6 traps community d0262bfa6bcf0a27b1� version 2
+snmp-server enable traps bgp established
+snmp-server enable traps bgp backward-transition
+snmp-server enable traps ospf if-authen-failure
+snmp-server enable traps ospf virtif-authen-failure
+snmp-server enable traps ospf if-config-error
+snmp-server enable traps ospf virtif-config-error
+snmp-server enable traps ospf if-state-change
+snmp-server enable traps ospf virtif-state-change
+snmp-server enable traps ospf nbr-state-change
+snmp-server enable traps ospf virtnbr-state-change
+snmp-server enable traps ospf if-rx-bad-packet
+snmp-server enable traps ospf virtif-rx-bad-packet
+snmp-server enable traps ospf tx-retransmit
+snmp-server enable traps ospf virtif-tx-retransmit
+snmp-server enable traps ospf originate-lsa
+snmp-server enable traps ospf max-age-lsa
+snmp-server enable traps ospf lsdb-approaching-overflow
+snmp-server enable traps ospf lsdb-overflow
+snmp-server enable traps ospfv3
+snmp-server enable traps ospfv3 if-state-change
+snmp-server enable traps ospfv3 virtif-state-change
+snmp-server enable traps ospfv3 nbr-state-change
+snmp-server enable traps ospfv3 virtnbr-state-change
+snmp-server enable traps ospfv3 if-config-error
+snmp-server enable traps ospfv3 virtif-config-error
+snmp-server enable traps ospfv3 if-rx-bad-packet
+snmp-server enable traps ospfv3 virtif-rx-bad-packet
+snmp-server enable traps l2-multicast change
+snmp-server enable traps snmp authentication
+snmp-server enable traps snmp coldstart
+snmp-server enable traps snmp warmstart
+snmp-server enable traps snmp linkdown
+snmp-server enable traps snmp linkup
+snmp-server enable traps system coldstart
+snmp-server enable traps system warmstart
+snmp-server enable traps system cpu-utilize-alarm
+snmp-server enable traps system memory-utilize-alarm
+snmp-server enable traps system cache-utilize-alarm
+snmp-server enable traps system card-plugIn-alarm
+snmp-server enable traps system card-plugOut-alarm
+snmp-server enable traps system power-plugIn-alarm
+snmp-server enable traps system power-plugOut-alarm
+snmp-server enable traps system fan-plugIn-alarm
+snmp-server enable traps system fan-plugOut-alarm
+snmp-server enable traps system over-temp-protect-alarm
+snmp-server enable traps snmp enterprise snmp-agent-up
+snmp-server enable traps snmp enterprise snmp-agent-down
+snmp-server enable traps snmp enterprise rmon-rising
+snmp-server enable traps snmp enterprise rmon-falling
+snmp-server enable traps mac-ping delay
+snmp-server enable traps mac-ping rt-delay
+snmp-server enable traps mac-ping jitter
+snmp-server enable traps mac-ping lost-rate
+snmp-server enable traps isis
+snmp-server enable traps ethernet cfm fault
+snmp-server enable traps ethernet oam threshold
+snmp-server enable traps ethernet oam none-threshold
+snmp-server enable traps vlan
+snmp-server enable traps port-security
+snmp-server enable traps remote-ping probe-failed
+snmp-server enable traps remote-ping test-failed
+snmp-server enable traps remote-ping test-complete
+snmp-server enable traps attact-detect
+snmp-server enable traps arp-inspection
+snmp-server enable traps ip-sla
+snmp-server enable traps port-storm
+snmp-server enable traps spanning-tree topology-change
+snmp-server enable traps spanning-tree new-root-port
+snmp-server enable traps spanning-tree new-root-bridge
+snmp-server enable traps vrf
+snmp-server enable traps port-shutdown
+snmp-server enable traps filesystem startup changed
+snmp-server enable traps reboot
+snmp-server enable traps eips
+snmp-server enable traps telnetauthenfail
+snmp-server enable traps mtlk
+snmp-server enable traps ulpp
+snmp-server enable traps mad
+snmp-server enable traps aaa-authenstate
+snmp-server enable traps shell running-changed
+snmp-server enable traps shell history
+
+ip ssh server
+
+
+line con 0
+ exec-timeout 15 0
+ login authentication AAA_IN
+
+line vty 0 15
+ access-class 207 in
+ exec-timeout 15 0
+ privilege level 15
+ protocol input ssh
+ exit
+
+!vst_config
+!vst_end
+
+!end 
+
+
+NFJD-PA-OAQ-SW06-S4320-13402#

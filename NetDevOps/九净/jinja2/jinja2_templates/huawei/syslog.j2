@@ -1,0 +1,3 @@
+info-center source default channel 2 log level {{ data.syslog[0].level }}
+info-center loghost source {{ data.syslog[0].source_intf }}
+info-center loghost {{ data.syslog[0].loghost }}

@@ -1,0 +1,4 @@
+{% for intf, params in desc | dictsort %}
+interface {{ intf }}
+ desc {{ params.desc | join('-') }}
+{% endfor %}

@@ -1,0 +1,54 @@
+
+已被修改的配置（长度变长）: 
+
+- sysname Layer3Switch-2
++ sysname Layer3Switch-222
+?                       ++
+
+----------------
+
+已被添加的新配置： 
+
+...
+?                       ++
+  #
++ info-center loghost 5.5.5.5
+...
+
+----------------
+
+已被添加的新配置： 
+
+...
+   undo shutdown
+  #
++ interface LoopBack0
+...
+
+----------------
+
+已被添加的新配置： 
+
+...
+  #
++ interface LoopBack0
++  ip address 22.22.22.2 255.255.255.255
+...
+
+----------------
+
+已被添加的新配置： 
+
+...
++ interface LoopBack0
++  ip address 22.22.22.2 255.255.255.255
++ #
+...
+
+----------------
+
+已被修改的配置（长度变长）: 
+
+- <Layer3Switch-2>+ <Layer3Switch-222>?                ++
+
+----------------

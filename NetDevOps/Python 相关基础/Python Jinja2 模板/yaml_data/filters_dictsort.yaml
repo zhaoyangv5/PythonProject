@@ -1,0 +1,10 @@
+- desc:
+    GigabitEthernet0/0/3:
+      desc: filters_dictsort_test3
+    GigabitEthernet0/0/2:
+      desc: filters_dictsort_test2
+    GigabitEthernet0/0/1:
+      desc: filters_dictsort_test1
+    GigabitEthernet0/0/4:
+      desc: filters_dictsort_test4
+  name: Layer3Switch-3

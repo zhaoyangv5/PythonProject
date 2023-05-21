@@ -1,0 +1,8 @@
+system
+sysname {{ name }}
+ospf 1 router-id {{ id }}
+ {% for networks in ospf %}
+ area {{ networks.area | default(0)}}
+  network {{ networks.network }}
+  quit
+ {% endfor %}

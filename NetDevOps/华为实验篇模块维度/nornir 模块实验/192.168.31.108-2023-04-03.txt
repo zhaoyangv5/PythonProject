@@ -1,0 +1,97 @@
+!Software Version V200R005C10SPC607B607
+!Last configuration was updated at 2023-04-03 12:12:10+00:00 by python
+!Last configuration was saved at 2023-04-01 13:59:08+00:00 by python
+#
+sysname Layer3Switch-222
+#
+info-center loghost 5.5.5.5
+undo info-center enable
+#
+device board 17 board-type CE-MPUB
+device board 1 board-type CE-LPUE
+#
+vlan batch 999
+#
+stp mode stp
+#
+vlan 999
+ description create_by_nornir
+#
+aaa
+ local-user python password irreversible-cipher $1c$;~HN~td3O~$`*#W0:j[C$b`gwK6R@<7^y`v!eS.!)x3StTb-=G$$
+ local-user python service-type ssh
+ local-user python level 3
+ #
+ authentication-scheme default
+ #
+ authorization-scheme default
+ #
+ accounting-scheme default
+ #
+ domain default
+ #
+ domain default_admin
+#
+interface Vlanif1
+ description python_g2
+ ip address 192.168.31.108 255.255.255.0
+#
+interface MEth0/0/0
+ undo shutdown
+#
+interface GE1/0/0
+ description cofiged by netmiko
+ undo shutdown
+#
+interface GE1/0/1
+ description cofiged by netmiko
+ undo shutdown
+#
+interface GE1/0/2
+ description cofiged by netmiko
+ undo shutdown
+#
+interface GE1/0/3
+ undo shutdown
+#
+interface GE1/0/4
+ undo shutdown
+#
+interface GE1/0/5
+ undo shutdown
+#
+interface GE1/0/6
+ undo shutdown
+#
+interface GE1/0/7
+ undo shutdown
+#
+interface GE1/0/8
+ undo shutdown
+#
+interface GE1/0/9
+ undo shutdown
+#
+interface LoopBack0
+ ip address 22.22.22.2 255.255.255.255
+#
+interface NULL0
+#
+stelnet server enable
+ssh authorization-type default aaa
+#
+ssh server cipher aes256_gcm aes128_gcm aes256_ctr aes192_ctr aes128_ctr aes256_cbc aes128_cbc 3des_cbc
+#
+ssh server dh-exchange min-len 1024
+#
+ssh client cipher aes256_gcm aes128_gcm aes256_ctr aes192_ctr aes128_ctr aes256_cbc aes128_cbc 3des_cbc
+#
+user-interface con 0
+#
+user-interface vty 0 4
+ authentication-mode aaa
+ protocol inbound ssh
+#
+vm-manager
+#
+return

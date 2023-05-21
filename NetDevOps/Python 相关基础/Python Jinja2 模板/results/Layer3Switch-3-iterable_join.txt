@@ -1,0 +1,15 @@
+vlan 10 20
+interface GigabitEthernet0/0/1
+ port trunk allow-pass vlan 10 20
+ quit
+
+vlan 30 40
+interface GigabitEthernet0/0/2
+ port trunk allow-pass vlan 30 40
+ quit
+
+vlan 50
+interface GigabitEthernet0/0/3
+ port trunk allow-pass vlan 50
+ quit
+

@@ -1,0 +1,28 @@
+
+Info: The max number of VTY users is 5, the number of current VTY users online is 1, and total number of terminal users online is 2.
+      The current login time is 2023-04-01 13:58:57.
+      The last login time is 2023-04-01 13:49:45 from 192.168.31.243 through SSH.
+<Layer3Switch-222>
+<Layer3Switch-222>
+<Layer3Switch-222>screen-length 0 temporary
+Info: The configuration takes effect on the current user terminal interface only.
+<Layer3Switch-222>
+<Layer3Switch-222>system-view
+Enter system view, return user view with return command.
+[~Layer3Switch-222]
+[~Layer3Switch-222]interface GE1/0/0
+[~Layer3Switch-222-GE1/0/0]description cofiged by netmiko
+[~Layer3Switch-222-GE1/0/0]interface GE1/0/1
+[~Layer3Switch-222-GE1/0/1]description cofiged by netmiko
+[~Layer3Switch-222-GE1/0/1]interface GE1/0/2
+[~Layer3Switch-222-GE1/0/2]description cofiged by netmiko
+[~Layer3Switch-222-GE1/0/2]commit
+[~Layer3Switch-222-GE1/0/2]
+[~Layer3Switch-222-GE1/0/2]return
+<Layer3Switch-222>
+<Layer3Switch-222>save
+Warning: The current configuration will be written to the device. Continue? [Y/N]:y
+Now saving the current configuration to the slot 17 
+Info: Save the configuration successfully.
+<Layer3Switch-222>
+<Layer3Switch-222>quit

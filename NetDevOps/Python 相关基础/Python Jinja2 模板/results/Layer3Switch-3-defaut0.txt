@@ -1,0 +1,12 @@
+system
+sysname Layer3Switch-3-defaut0
+ospf 1 router-id 192.168.3.3
+ area 0
+  network 10.0.1.0 0.0.0.255
+  quit
+ area 2
+  network 10.0.2.0 0.0.0.255
+  quit
+ area 0
+  network 10.0.3.0 0.0.0.255
+  quit

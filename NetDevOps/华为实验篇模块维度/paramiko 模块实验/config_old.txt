@@ -1,0 +1,4 @@
+interface Vlanif1
+ description Python_G1
+ ip address 192.168.11.11 255.255.255.0
+ arp-proxy enable

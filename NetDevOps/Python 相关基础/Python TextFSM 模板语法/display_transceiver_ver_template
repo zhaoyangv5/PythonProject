@@ -1,0 +1,15 @@
+Value Int (GigabitEthernet\S+)
+Value Date (\S+)
+Value Type (\w+_SFP)
+Value List Alarm (.+)
+
+Start
+  ^.*transceiver information: -> Continue.Record
+  ^${Int}\s
+  ^\s+Manufacturing.+:${Date}
+  ^\s+\S+\s+\S+\s+:${Type}
+  ^Alarm information: -> ALARM
+
+ALARM
+  ^\s+${Alarm}
+  ^- -> Start

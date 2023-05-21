@@ -1,0 +1,6 @@
+{
+  "interface": "Vlanif1",
+  "ipaddress": "192.168.11.11/24",
+  "protocol": "up",
+  "status": "up"
+}

@@ -1,0 +1,7 @@
+[
+  "port priority 5",
+  "port link-type trunk",
+  "port trunk allow-pass vlan 100",
+  "port link-flap interval 50",
+  "port type uni"
+]

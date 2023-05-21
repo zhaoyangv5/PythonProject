@@ -1,0 +1,4 @@
+Value version (\S+)
+
+Start
+ ^VRP \(R\) software, Version ${version} -> Record

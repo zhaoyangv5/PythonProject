@@ -1,0 +1,16 @@
+<SW-XXXX-S5328C-EI-HW>display ip interface | include Address|current|Unit
+LoopBack0 current state : UP
+Line protocol current state : UP (spoofing)
+The Maximum Transmit Unit : 1490 bytes
+Internet Address is 11.11.11.11/32
+MEth0/0/1 current state : DOWN
+Line protocol current state : DOWN
+The Maximum Transmit Unit : 1508 bytes
+Internet Address is 192.168.103.1/24
+NULL0 current state : UP
+Line protocol current state : UP (spoofing)
+The Maximum Transmit Unit : 1500 bytes
+Vlanif201 current state : UP
+Line protocol current state : UP
+The Maximum Transmit Unit : 1450 bytes
+Internet Address is 172.25.1.234/27

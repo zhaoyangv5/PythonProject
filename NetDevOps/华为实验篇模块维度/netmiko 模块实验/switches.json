@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Layer3Switch-1",
+    "connection": {
+       "device_type": "huawei_vrpv8",
+          "host": "192.168.31.100",
+          "username": "python",
+          "password": "Admin@123"
+    }
+  },
+  {
+    "name": "Layer3Switch-2",
+    "connection": {
+       "device_type": "huawei_vrpv8",
+          "host": "192.168.31.101",
+          "username": "python",
+          "password": "Admin@123"
+    }
+  },
+  {
+    "name": "Layer3Switch-3",
+    "connection": {
+       "device_type": "huawei_vrpv8",
+          "host": "192.168.31.102",
+          "username": "python",
+          "password": "Admin@123"
+    }
+  },
+  {
+    "name": "Layer3Switch-4",
+    "connection": {
+       "device_type": "huawei_vrpv8",
+          "host": "192.168.31.103",
+          "username": "python",
+          "password": "Admin@123"
+    }
+  },
+  {
+    "name": "Layer3Switch-5",
+    "connection": {
+       "device_type": "huawei_vrpv8",
+          "host": "192.168.31.108",
+          "username": "python",
+          "password": "Admin@123"
+    }
+  }
+]

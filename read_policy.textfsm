@@ -1,0 +1,23 @@
+Value Rule (\d+)
+Value Name (\w+)
+Value Sourcezone (\S+)
+Value Destinationzone (\S+)
+Value List Sourceip (\S+)
+Value List Destinationip (\S+)
+Value List ServerPort (\S+)
+
+
+Start
+ ^security-policy ip
+ ^\s+rule ${Rule} name ${Name}
+ ^\s+source-zone ${Sourcezone}
+ ^\s+destination-zone ${Destinationzone}
+ ^\s+source-ip-host ${Sourceip}
+ ^\s+source-ip ${Sourceip}
+ ^\s+source-ip-range ${Sourceip}
+ ^\s+destination-ip-host ${Destinationip}
+ ^\s+destination-ip-range ${Destinationip}
+ ^\s+destination-ip ${Destinationip}
+ ^\s+service ${ServerPort}
+ ^\s+service-port udp destination eq ${ServerPort}
+ ^\s+service-port tcp destination eq ${ServerPort} -> Record

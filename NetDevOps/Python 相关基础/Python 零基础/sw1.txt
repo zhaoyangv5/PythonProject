@@ -1,0 +1,12 @@
+interface GigabitEthernet0/0/1
+#
+interface NULL0
+#
+ stelnet server enable
+#
+user-interface con 0
+ authentication-mode password
+user-interface vty 0 4
+ authentication-mode aaa
+user-interface vty 16 20
+#

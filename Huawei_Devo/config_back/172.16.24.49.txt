@@ -1,0 +1,621 @@
+
+NFJD-PA-OAQ-SW01-S4320-13402#more off
+NFJD-PA-OAQ-SW01-S4320-13402#show running-config
+Building Configuration...done
+
+! Current configuration : 20533 bytes
+!
+! Last configuration change at BEIJING(UTC+08:00) THU SEP 23 10:49:26 2021 by yingjiweihu
+! Flash config last updated at BEIJING(UTC+08:00) MON SEP 06 16:30:37 2021 by guanli
+! Configuration version 0.23
+!
+
+!software version 8.3.0.8(R)(integrity)
+!software image file flash0: /flash/sp6-g-8.3.0.8(R).pck
+!compiled on Mar 18 2019, 07:01:19
+
+hostname NFJD-PA-OAQ-SW01-S4320-13402
+            
+
+enable password 9dfe74f39b30ad86ff658552aa7e1ef55ef724a9f00ceaba860b encrypt
+
+privilege EN level 1 command ping 
+privilege EN level 3 command configure 
+privilege CONF level 3 command snmp-server 
+
+
+user xunjian password 7 711a3ea10fa6349d8a888af7b6b8d40b21
+user yingjiweihu privilege 15 password 7 bb89c73038430a6c194d1a89788b40b90cae88503c781c1a3866
+user guanli password 7 d78681d4224f3c31522e2c9f8fd10f4632
+
+ip ctrl-protocol unicast
+ip ctrl-protocol multicast
+
+ip load-sharing per-destination
+ipv6 load-sharing per-destination
+
+ip access-list standard 207
+ 10 permit host 172.16.45.227
+ 15 permit host 172.16.45.226
+ 40 permit host 192.168.101.10
+ 50 permit host 192.168.101.11
+ 60 permit host 192.168.101.12
+ 70 permit host 192.168.101.14
+ 80 permit host 192.168.101.15
+ 90 permit 172.16.23.32 0.0.0.31
+ 100 permit host 192.168.101.31
+ 101 permit host 192.168.101.32
+ 500 deny any
+ exit
+
+ip access-list extended 1001
+ 5 permit ip host 172.16.24.240 172.16.9.0 0.0.0.255
+ 10 permit ip host 172.16.24.241 172.16.9.0 0.0.0.255
+ 15 permit ip host 172.16.24.242 172.16.9.0 0.0.0.255
+ 17 permit ip host 172.16.24.243 172.16.9.0 0.0.0.255
+ 20 permit ip host 172.16.24.240 172.16.24.0 0.0.0.255
+ 25 permit ip host 172.16.24.241 172.16.24.0 0.0.0.255
+ 30 permit ip host 172.16.24.242 172.16.24.0 0.0.0.255
+ 32 permit ip host 172.16.24.243 172.16.24.0 0.0.0.255
+ 34 permit ip 172.16.24.0 0.0.0.255 any
+ 35 deny ip host 172.16.24.240 any
+ 40 deny ip host 172.16.24.241 any
+ 45 deny ip host 172.16.24.242 any
+ 50 deny ip host 172.16.24.243 any
+ 55 deny ip host 172.16.24.193 172.16.2.0 0.0.0.255
+ 100 permit ip any any
+ exit
+
+ip access-list extended 1002
+ 10 deny icmp any any fragments
+ exit
+
+ip access-list extended 2000
+ 5 permit ip 192.168.0.0 0.0.255.255 any
+ 500 deny ip any any
+ exit
+
+mac access-list extended 3001
+ 10 permit host 309c.23f3.122a any
+ 20 permit host 805e.0c10.3375 any
+ 10000 deny any any
+ exit
+
+mac access-list extended 3002
+ 10 permit host 309c.23f3.0ed9 any
+ 20 permit host 805e.c0d8.ae14 any
+ 10000 deny any any
+ exit
+
+mac access-list extended 3003
+ 10 permit host 309c.23f3.180d any
+ 10000 deny any any
+ exit
+
+mac access-list extended 3004
+ 10 permit host 309c.23f3.146f any
+ 10000 deny any any
+ exit
+
+mac access-list extended 3005
+ 10 permit host 309c.23f3.122d any
+ 10000 deny any any
+ exit
+
+mac access-list extended 3006
+ 10 permit host 309c.23f3.1698 any
+ 20 permit host 805e.c0d8.b451 any
+ 10000 deny any any
+ exit
+
+mac access-list extended 3007
+ 10 permit host 4487.fcf1.c4ff any
+ 10000 deny any any
+ exit
+
+
+aaa new-model
+aaa authentication login authen-list radius local
+aaa authentication login AAA_IN local
+aaa authentication connection landesk radius
+aaa authorization exec author-list radius local
+aaa accounting exec account-list start-stop radius
+link-aggregation 1 mode lacp
+
+vlan 1
+ exit
+
+vlan 119-120,200
+
+
+
+
+voice vlan oui-mac 0001.e300.0000 mask ffff.ff00.0000 name Siemens_phone
+voice vlan oui-mac 0003.6b00.0000 mask ffff.ff00.0000 name Cisco_phone
+voice vlan oui-mac 0004.0d00.0000 mask ffff.ff00.0000 name Avaya_phone
+voice vlan oui-mac 0060.b900.0000 mask ffff.ff00.0000 name Philips/NEC_phone
+voice vlan oui-mac 00d0.1e00.0000 mask ffff.ff00.0000 name Pingtel_phone
+voice vlan oui-mac 00e0.7500.0000 mask ffff.ff00.0000 name Polycom_phone
+voice vlan oui-mac 00e0.bb00.0000 mask ffff.ff00.0000 name 3com_phone
+
+
+
+
+
+
+
+
+!slot_0_S4320-56TC-AC(V1)
+!slot 0
+!cardtype_0_0x2047a381
+interface gigabitethernet0/1
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/2
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/3
+ storm-control broadcast pps 1024
+ switchport access vlan 119
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ mac access-group 3006 in
+ exit
+interface gigabitethernet0/4
+ storm-control broadcast pps 1024
+ switchport access vlan 119
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ mac access-group 3004 in
+ exit
+interface gigabitethernet0/5
+ storm-control broadcast pps 1024
+ switchport access vlan 119
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ mac access-group 3002 in
+ exit
+interface gigabitethernet0/6
+ storm-control broadcast pps 1024
+ switchport access vlan 119
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ mac access-group 3005 in
+ exit
+interface gigabitethernet0/7
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/8
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/9
+ switchport access vlan 120
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ mac access-group 3007 in
+ exit
+interface gigabitethernet0/10
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/11
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/12
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 3
+ port-security permit mac-address sticky
+ port-security permit mac-address sticky 98FA.9BFF.E138
+ port-security permit mac-address sticky 309C.23F3.0EE9
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/13
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 3
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/14
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/15
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ port-security permit mac-address sticky 3C52.8257.CCE1
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/16
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ port-security permit mac-address sticky 98FA.9BFF.D77E
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/17
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/18
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ port-security permit mac-address sticky 98FA.9BFF.E138
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/19
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/20
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/21
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/22
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ port-security permit mac-address sticky E4E7.4919.10CE
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/23
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/24
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/25
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/26
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ ip access-group 1001 in
+ exit
+interface gigabitethernet0/27
+ storm-control broadcast pps 1024
+ switchport access vlan 119
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ mac access-group 3003 in
+ exit
+interface gigabitethernet0/28
+ storm-control broadcast pps 1024
+ switchport access vlan 119
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ mac access-group 3001 in
+ exit
+interface gigabitethernet0/29
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/30
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/31
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/32
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/33
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/34
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/35
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/36
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/37
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/38
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/39
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/40
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/41
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ port-security permit mac-address sticky E4E7.4918.AFB8
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/42
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/43
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/44
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ exit
+interface gigabitethernet0/45
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 3
+ port-security permit mac-address sticky
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/46
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 1
+ port-security permit mac-address sticky
+ port-security permit mac-address sticky 000E.C6A6.86A6
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/47
+ storm-control broadcast pps 1024
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface gigabitethernet0/48
+ storm-control broadcast pps 1024
+ port-security enable
+ port-security maximum 3
+ port-security permit mac-address sticky
+ port-security permit mac-address sticky 6C4B.90CC.FF0F
+ port-security permit mac-address sticky 000E.C67C.9F7B
+ port-security permit mac-address sticky 4487.FCF0.30D9
+ spanning-tree bpdu guard
+ spanning-tree portfast edgeport
+ exit
+interface tengigabitethernet0/49
+ speed 10000
+ duplex full
+ exit
+interface tengigabitethernet0/50
+ speed 10000
+ duplex full
+ exit
+interface tengigabitethernet0/51
+ description uT:NFJD-PA-OAQ-SW01/SW02-S7606-13402:1*1G::XGE2/1/0/5_172.16.24.7
+ speed 1000
+ duplex full
+ link-aggregation 1 active
+ exit
+interface tengigabitethernet0/52
+ description uT:NFJD-PA-OAQ-SW01/SW02-S7606-13402:1*1G::XGE1/1/0/5_172.16.24.7
+ speed 1000
+ duplex full
+ link-aggregation 1 active
+ exit
+!end
+
+
+link-aggregation 1
+ description uT:NFJD-PA-OAQ-SW01/SW02-S7606-13402:2*1G::BAGG1_172.16.24.7
+ switchport mode trunk
+ switchport trunk allowed vlan all
+ switchport trunk pvid vlan 1
+ spanning-tree guard loop
+ spanning-tree bpdu filter
+ exit
+
+telnet server disable
+
+ 		                
+
+interface null0
+ exit
+
+
+interface dc0
+ exit
+
+
+interface vlan1
+ ip address dhcp
+ exit
+
+
+interface vlan200
+ description uT:NFJD-PA-OAQ-SW01/SW02-S7606:Vlan200_172.16.24.7
+ ip address 172.16.24.49 255.255.255.240
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ exit
+
+                                     
+ip route 0.0.0.0 0.0.0.0 172.16.24.62
+ip route 172.16.25.247 255.255.255.255 192.168.1.3
+
+radius-server host 172.16.25.247 auth-port 1645 acct-port 1646 priority 1 key 7 e048d98e5bc5a98f
+logging server
+logging source-ip 172.16.24.49
+logging 172.16.23.79 0 5
+logging 172.16.23.41 0 5
+logging 172.16.5.72 0 5
+logging 172.16.102.6 0 5
+logging event
+
+ntp master 15
+ntp server 172.16.24.7
+clock timezone BEIJING 8
+
+snmp-server start 
+snmp-server view default 1.2 include
+snmp-server view default 1.0.8802 include
+snmp-server view default 1.1.2 include
+snmp-server view default 1.3.111 include
+snmp-server view default 1.3.6.1 include
+snmp-server community 755430edf1f385feeec112ab21b64a1a6f703df6c0c0adf0e8� view default ro 207
+snmp-server community ca3c9643fdf7e7f0dd0e10ca2491999f4d189b58ccc1d8f6cb02� view default rw 207
+snmp-server community ae735c6bb7e3bf20cb� view default ro 200
+snmp-server community 5322acc7ea42e1e459� view default ro
+snmp-server group ChinaMobile_Manager_Write v3 authpriv read default write default notify default 
+snmp-server user ChinaMobile_Manager_Write ChinaMobile_Manager_Write v3 auth md5 5aeaad5245ec5464bcbd0df60cde936c81cea04974da6b62aab1� encrypt des 3c6c91dd01d4033adad5869b4151a7467a489cc630e23c3cccd9�
+snmp-server context ChinaMobi
+snmp-server context ChinaMobile_Manager_Write
+snmp-server enable traps filesystem utilization
+snmp-server host 172.16.14.1 traps community 33a399b63821de06165df71aa4bc54fccd8794ad0912f60810� version 2
+snmp-server host 172.16.5.97 traps community 02dbfb710a93� version 2
+snmp-server host 172.16.102.6 traps community 66966ce11c907ddcd6� version 2
+snmp-server enable traps bgp established
+snmp-server enable traps bgp backward-transition
+snmp-server enable traps ospf if-authen-failure
+snmp-server enable traps ospf virtif-authen-failure
+snmp-server enable traps ospf if-config-error
+snmp-server enable traps ospf virtif-config-error
+snmp-server enable traps ospf if-state-change
+snmp-server enable traps ospf virtif-state-change
+snmp-server enable traps ospf nbr-state-change
+snmp-server enable traps ospf virtnbr-state-change
+snmp-server enable traps ospf if-rx-bad-packet
+snmp-server enable traps ospf virtif-rx-bad-packet
+snmp-server enable traps ospf tx-retransmit
+snmp-server enable traps ospf virtif-tx-retransmit
+snmp-server enable traps ospf originate-lsa
+snmp-se

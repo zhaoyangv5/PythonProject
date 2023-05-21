@@ -1,0 +1,5 @@
+2023-04-12 19:48:18,155 -  nornir.core -     INFO -        run() - Running task 'write_file_for_single_dev' with args {} on 4 hosts
+2023-04-12 19:55:35,003 -  nornir.core -     INFO -        run() - Running task 'write_file_for_single_dev' with args {} on 4 hosts
+2023-04-12 19:56:09,741 -  nornir.core -     INFO -        run() - Running task 'write_file_for_single_dev' with args {} on 4 hosts
+2023-04-12 20:00:16,250 -  nornir.core -     INFO -        run() - Running task 'tcp_ping' with args {'ports': [22, 830]} on 4 hosts
+2023-04-12 20:06:22,450 -  nornir.core -     INFO -        run() - Running task 'template_file' with args {'template': 'interface_with_filters.j2', 'path': 'jinja2_templates', 'jinja_filters': {'interface_name_format': <function interface_name_filter at 0x1042fbeb0>}, 'interface_name': 'eth1/1'} on 4 hosts

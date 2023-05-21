@@ -1,0 +1,1 @@
+ntp unicast-server {{ data.ntp[0].ip }} {% if data.ntp[0].vpn_instance %} vpn-instance {% endif %}

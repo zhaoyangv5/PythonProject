@@ -1,0 +1,91 @@
+---
+#1.nornir_napalm，Windows，华为.py
+
+#192.168.31.100:
+#  hostname: 192.168.31.100
+#  username: python
+#  password: Admin@123
+#  port: 22
+#  platform: huawei_vrp
+#
+#192.168.31.101:
+#  hostname: 192.168.31.101
+#  username: python
+#  password: Admin@123
+#  port: 22
+#  groups:
+#    - huawei
+
+#2.nornir_netmiko，华为.py
+
+#192.168.31.100:
+#  hostname: 192.168.31.100
+#  username: python
+#  password: Admin@123
+#  port: 22
+#  platform: huawei
+#
+#192.168.31.101:
+#  hostname: 192.168.31.101
+#  username: python
+#  password: Admin@123
+#  port: 22
+#  groups:
+#    - huawei
+
+#3.filter()配合F()高级过滤，华为.py
+
+#192.168.31.100:
+#    hostname: 192.168.31.100
+#    username: python
+#    password: 'Admin@123'
+#    groups:
+#        - huawei_group1
+#192.168.31.101:
+#    hostname: 192.168.31.101
+#    groups:
+#        - huawei_group1
+#192.168.31.102:
+#    hostname: 192.168.31.102
+#    groups:
+#        - huawei_group2
+#192.168.31.108:
+#    hostname: 192.168.31.108
+#    groups:
+#        - huawei_group2
+
+#4.filter()简单过滤，华为.py
+
+192.168.31.100:
+    hostname: 192.168.31.100
+    username: python
+    password: 'Admin@123'
+    groups:
+        - huawei_group1
+    data:
+        building: '1'
+        level: '1'
+
+192.168.31.101:
+    hostname: 192.168.31.101
+    groups:
+        - huawei_group1
+    data:
+        building: '1'
+        level: '2'
+
+192.168.31.102:
+    hostname: 192.168.31.102
+    groups:
+        - huawei_group2
+    data:
+        building: '2'
+        level: '1'
+
+192.168.31.108:
+    hostname: 192.168.31.108
+    groups:
+        - huawei_group2
+    data:
+        building: '2'
+        level: '2'

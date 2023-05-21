@@ -1,0 +1,15 @@
+loopbacks:
+  - loopback: 0
+    ipaddress: 1.1.1.1
+    mask: 32
+  - loopback: 11
+    ipaddress: 11.11.11.11
+    mask: 32
+asn: 65100
+neighbor: 192.168.31.101
+remote-as: 65200
+networks:
+  - net: 1.1.1.1
+    mask: 255.255.255.255
+  - net: 11.11.11.11
+    mask: 255.255.255.255

@@ -1,0 +1,14 @@
+system
+
+sysname Layer3Switch-3-if-no-ospf
+
+interface Loopback0
+ ip address 192.168.3.3 255.255.255.255
+
+vlan 10
+ desc Marketing
+vlan 20
+ desc Voice
+vlan 30
+ desc Management
+

@@ -1,0 +1,12 @@
+system
+sysname {{ name }}
+ospf 1 router-id {{ id }}
+ {% for networks in ospf %}
+  {% if networks.area is defined %}
+   area {{ networks.area }}
+  {% else %}
+   area 0
+  {% endif %}
+    network {{ networks.network }}
+    quit
+ {% endfor %}

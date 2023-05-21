@@ -1,0 +1,7 @@
+system-view immediately
+undo info-center enable
+interface vlan 1
+desc python_g2
+return
+save
+y

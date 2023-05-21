@@ -1,0 +1,15 @@
+#
+system
+#
+sysname Layer3Switch-1
+#
+interface LoopBack0
+ description Management loopback
+ ip address 192.168.1.1 255.255.255.255
+#
+interface Vlanif1
+ ip address 192.168.11.11 255.255.255.0
+#
+interface GigabitEthernet0/0/1
+ description LAN to SW-GigabitEthernet0/0/1
+#

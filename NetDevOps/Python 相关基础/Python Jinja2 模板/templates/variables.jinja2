@@ -1,0 +1,16 @@
+system
+
+sysname {{ name }}
+
+interface Loopback0
+ ip address {{ id }} 255.255.255.255
+
+vlan {{ vlans[0] }}
+
+ospf 1 router-id {{ id }}
+ area {{ ospf['area'] }}
+ network {{ ospf.network }}
+
+
+{# yaml文件中，vlans是个列表，我们现在取第一个值，所以Jinja2模板中写为 vlans{{0}}。#}
+{# yaml文件中，ospf是个字典，我们取通过键索引对应的值，有两种写法 ospf['area'] 或 ospf.network #}

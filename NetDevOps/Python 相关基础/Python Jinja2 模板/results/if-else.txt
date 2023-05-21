@@ -1,0 +1,13 @@
+   vlan 10
+   interface GigabitEthernet0/0/1
+    port trunk allow-pass vlan 10
+   vlan 20
+   interface GigabitEthernet0/0/1
+    port trunk allow-pass vlan 20
+  interface GigabitEthernet0/0/2
+    undo port trunk allow-pass vlan 40
+    undo port trunk allow-pass vlan 30
+  interface GigabitEthernet0/0/3
+    undo port trunk allow-pass vlan 50
+    q
+   undo vlan 50

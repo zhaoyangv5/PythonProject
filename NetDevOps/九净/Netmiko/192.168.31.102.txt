@@ -1,0 +1,96 @@
+!Software Version V200R005C10SPC607B607
+!Last configuration was updated at 2023-04-01 11:15:33+00:00 by SYSTEM automatically
+!Last configuration was saved at 2023-03-30 13:37:54+00:00
+#
+sysname Layer3Switch-4
+#
+undo info-center enable
+#
+device board 17 board-type CE-MPUB
+device board 1 board-type CE-LPUE
+#
+vlan batch 100 to 102
+#
+stp mode stp
+#
+vlan 100
+ description Python_vlan100
+#
+vlan 101
+ description Python_vlan101
+#
+vlan 102
+ description Python_vlan102
+#
+aaa
+ local-user python password irreversible-cipher $1c$'~M--\]@>8$*>2k5[RRP>eUm'OJ%6QT6L<F,,[0[$i7VkAi7^V@$
+ local-user python service-type ssh
+ local-user python level 3
+ #
+ authentication-scheme default
+ #
+ authorization-scheme default
+ #
+ accounting-scheme default
+ #
+ domain default
+ #
+ domain default_admin
+#
+interface Vlanif1
+ description python_g1
+ ip address 192.168.31.102 255.255.255.0
+#
+interface MEth0/0/0
+ undo shutdown
+#
+interface GE1/0/0
+ undo shutdown
+#
+interface GE1/0/1
+ undo shutdown
+#
+interface GE1/0/2
+ undo shutdown
+#
+interface GE1/0/3
+ undo shutdown
+#
+interface GE1/0/4
+ undo shutdown
+#
+interface GE1/0/5
+ undo shutdown
+#
+interface GE1/0/6
+ undo shutdown
+#
+interface GE1/0/7
+ undo shutdown
+#
+interface GE1/0/8
+ undo shutdown
+#
+interface GE1/0/9
+ undo shutdown
+#
+interface NULL0
+#
+stelnet server enable
+ssh authorization-type default aaa
+#
+ssh server cipher aes256_gcm aes128_gcm aes256_ctr aes192_ctr aes128_ctr aes256_cbc aes128_cbc 3des_cbc
+#
+ssh server dh-exchange min-len 1024
+#
+ssh client cipher aes256_gcm aes128_gcm aes256_ctr aes192_ctr aes128_ctr aes256_cbc aes128_cbc 3des_cbc
+#
+user-interface con 0
+#
+user-interface vty 0 4
+ authentication-mode aaa
+ protocol inbound ssh
+#
+vm-manager
+#
+return

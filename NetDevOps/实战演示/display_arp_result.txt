@@ -1,0 +1,30 @@
+
+details of arp table 1:
+Ip         : 172.29.50.150
+Mac        : 4C1F-Ccb4-5157
+Port       : Vlanif41  
+Vlan       : -         
+
+details of arp table 2:
+Ip         : 172.29.50.149
+Mac        : 4C1F-Cc76-4828
+Port       : Ge0/0/1   
+Vlan       : 41        
+
+details of arp table 3:
+Ip         : 10.245.253.9
+Mac        : 4C1F-Ccb4-5157
+Port       : Vlanif400 
+Vlan       : -         
+
+details of arp table 4:
+Ip         : 10.245.253.10
+Mac        : 4C1F-Cc1B-2942
+Port       : Ge0/0/7   
+Vlan       : 400       
+
+details of arp table 5:
+Ip         : 10.245.199.97
+Mac        : 4C1F-Ccb4-5157
+Port       : Vlanif567 
+Vlan       : -         

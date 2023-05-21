@@ -1,0 +1,12 @@
+- trunks:
+    GigabitEthernet0/0/1:
+      vlans:
+        - 10
+        - 20
+    GigabitEthernet0/0/2:
+      vlans:
+        - 30
+        - 40
+    GigabitEthernet0/0/3:
+      vlans: 50
+  name: Layer3Switch-3

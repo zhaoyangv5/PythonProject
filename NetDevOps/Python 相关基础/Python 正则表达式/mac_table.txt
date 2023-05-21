@@ -1,0 +1,17 @@
+<Huawei>disp mac-address
+MAC address table of slot 0:
+-------------------------------------------------------------------------------
+MAC Address    VLAN/       PEVLAN CEVLAN Port            Type      LSP/LSR-ID
+               VSI/SI                                              MAC-Tunnel
+-------------------------------------------------------------------------------
+0200-4c4f-4f50 1           -      -      Eth0/0/10       dynamic   0/-
+4c1f-cc92-675c 1           -      -      Eth0/0/1        dynamic   0/-
+4c1f-ccb5-2a00 1           -      -      Eth0/0/2        dynamic   0/-
+4c1f-cc37-79d4 1           -      -      Eth0/0/3        dynamic   0/-
+4c1f-ccb9-3de8 1           -      -      Eth0/0/4        dynamic   0/-
+4c1f-ccd0-2d35 1           -      -      Eth0/0/5        dynamic   0/-
+-------------------------------------------------------------------------------
+Total matching items on slot 0 displayed = 6
+
+<Huawei>
+

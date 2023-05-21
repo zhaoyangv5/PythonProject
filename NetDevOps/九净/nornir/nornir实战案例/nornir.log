@@ -1,0 +1,338 @@
+2023-04-12 20:25:05,042 -  nornir.core -     INFO -        run() - Running task 'config_backup' with args {} on 3 hosts
+2023-04-12 20:33:27,526 -  nornir.core -     INFO -        run() - Running task 'config_backup' with args {} on 3 hosts
+2023-04-12 20:33:32,604 - nornir.core.task -    ERROR -      start() - Host 'netdevops01': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/paramiko/client.py", line 365, in connect
+    sock.connect(addr)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: huawei 192.168.31.100:22
+
+
+
+2023-04-12 20:33:32,604 - nornir.core.task -    ERROR -      start() - Host 'netdevops02': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/paramiko/client.py", line 365, in connect
+    sock.connect(addr)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: huawei 192.168.31.101:22
+
+
+
+2023-04-12 20:33:32,604 - nornir.core.task -    ERROR -      start() - Host 'netdevops03': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/paramiko/client.py", line 365, in connect
+    sock.connect(addr)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: huawei 192.168.31.102:22
+
+
+
+2023-04-12 20:33:32,605 - nornir.core.task -    ERROR -      start() - Host 'netdevops01': task 'config_backup' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/NetDevOps/九净/nornir/nornir实战案例/1.基于nornir_netmiko的版本批量配置备份.py", line 22, in config_backup
+    cmd_multi_result_objs = task_context.run(task=netmiko_send_command, command_string=cmd)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2023-04-12 20:33:32,605 - nornir.core.task -    ERROR -      start() - Host 'netdevops02': task 'config_backup' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/NetDevOps/九净/nornir/nornir实战案例/1.基于nornir_netmiko的版本批量配置备份.py", line 22, in config_backup
+    cmd_multi_result_objs = task_context.run(task=netmiko_send_command, command_string=cmd)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2023-04-12 20:33:32,605 - nornir.core.task -    ERROR -      start() - Host 'netdevops03': task 'config_backup' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/NetDevOps/九净/nornir/nornir实战案例/1.基于nornir_netmiko的版本批量配置备份.py", line 22, in config_backup
+    cmd_multi_result_objs = task_context.run(task=netmiko_send_command, command_string=cmd)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2023-04-12 20:38:01,767 -  nornir.core -     INFO -        run() - Running task 'config_backup' with args {} on 3 hosts
+2023-04-12 20:38:06,788 - nornir.core.task -    ERROR -      start() - Host 'netdevops02': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/paramiko/client.py", line 365, in connect
+    sock.connect(addr)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: huawei 192.168.31.101:22
+
+
+
+2023-04-12 20:38:06,788 - nornir.core.task -    ERROR -      start() - Host 'netdevops01': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/paramiko/client.py", line 365, in connect
+    sock.connect(addr)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: huawei 192.168.31.100:22
+
+
+
+2023-04-12 20:38:06,788 - nornir.core.task -    ERROR -      start() - Host 'netdevops03': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/paramiko/client.py", line 365, in connect
+    sock.connect(addr)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: huawei 192.168.31.102:22
+
+
+
+2023-04-12 20:38:06,788 - nornir.core.task -    ERROR -      start() - Host 'netdevops02': task 'config_backup' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/NetDevOps/九净/nornir/nornir实战案例/1.基于nornir_netmiko的版本批量配置备份.py", line 33, in config_backup
+    cmd_multi_result_objs = task_context.run(task=netmiko_send_command,
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2023-04-12 20:38:06,789 - nornir.core.task -    ERROR -      start() - Host 'netdevops01': task 'config_backup' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/NetDevOps/九净/nornir/nornir实战案例/1.基于nornir_netmiko的版本批量配置备份.py", line 33, in config_backup
+    cmd_multi_result_objs = task_context.run(task=netmiko_send_command,
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2023-04-12 20:38:06,789 - nornir.core.task -    ERROR -      start() - Host 'netdevops03': task 'config_backup' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/NetDevOps/九净/nornir/nornir实战案例/1.基于nornir_netmiko的版本批量配置备份.py", line 33, in config_backup
+    cmd_multi_result_objs = task_context.run(task=netmiko_send_command,
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2023-04-12 20:41:20,055 -  nornir.core -     INFO -        run() - Running task 'config_backup' with args {} on 3 hosts
+2023-04-12 21:29:06,726 -  nornir.core -     INFO -        run() - Running task 'config_backup' with args {} on 3 hosts
+2023-04-13 20:44:42,171 -  nornir.core -     INFO -        run() - Running task 'collect_interfaces' with args {} on 3 hosts
+2023-04-13 20:49:48,280 -  nornir.core -     INFO -        run() - Running task 'collect_interfaces' with args {} on 3 hosts
+2023-04-13 20:49:57,315 - nornir.core.task -    ERROR -      start() - Host 'netdevops01': task 'collect_interfaces' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/NetDevOps/九净/nornir/nornir实战案例/3.信息批量采集.py", line 43, in collect_interfaces
+    raise Exception('解析数据失败,未获取到有效数据，请确认解析模板是否编写正确')
+Exception: 解析数据失败,未获取到有效数据，请确认解析模板是否编写正确
+
+2023-04-13 20:49:57,316 - nornir.core.task -    ERROR -      start() - Host 'netdevops02': task 'collect_interfaces' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/NetDevOps/九净/nornir/nornir实战案例/3.信息批量采集.py", line 43, in collect_interfaces
+    raise Exception('解析数据失败,未获取到有效数据，请确认解析模板是否编写正确')
+Exception: 解析数据失败,未获取到有效数据，请确认解析模板是否编写正确
+
+2023-04-13 20:49:57,359 - nornir.core.task -    ERROR -      start() - Host 'netdevops03': task 'collect_interfaces' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/domic/PycharmProjects/PythonProject/venv/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/domic/PycharmProjects/PythonProject/NetDevOps/九净/nornir/nornir实战案例/3.信息批量采集.py", line 43, in collect_interfaces
+    raise Exception('解析数据失败,未获取到有效数据，请确认解析模板是否编写正确')
+Exception: 解析数据失败,未获取到有效数据，请确认解析模板是否编写正确
+
+2023-04-13 21:01:29,905 -  nornir.core -     INFO -        run() - Running task 'collect_interfaces' with args {} on 3 hosts

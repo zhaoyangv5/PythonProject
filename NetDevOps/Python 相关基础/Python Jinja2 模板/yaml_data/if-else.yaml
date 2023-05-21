@@ -1,0 +1,16 @@
+- trunks:
+    GigabitEthernet0/0/1:
+      action: add
+      vlans:
+        - 10
+        - 20
+    GigabitEthernet0/0/2:
+      action: only
+      vlans:
+        - 40
+        - 30
+    GigabitEthernet0/0/3:
+      action: delete
+      vlans:
+        - 50
+  name: Layer3Switch-3

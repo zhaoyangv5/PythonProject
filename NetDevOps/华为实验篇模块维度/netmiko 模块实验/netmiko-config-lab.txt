@@ -1,0 +1,3 @@
+interface GE1/0/1
+description descby_send_config_set()
+commit

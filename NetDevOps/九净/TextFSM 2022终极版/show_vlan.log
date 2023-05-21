@@ -1,0 +1,29 @@
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Eth1/2, Eth1/3, Eth1/4, Eth1/5
+                                                Eth1/6, Eth1/7, Eth1/8, Eth1/9
+                                                Eth1/10, Eth1/11, Eth1/12
+                                                Eth1/47, Eth1/48, Eth2/1, Eth2/2
+                                                Eth2/3, Eth2/4, Eth2/5, Eth2/6
+                                                Eth2/7, Eth2/8, Eth2/9, Eth2/10
+                                                Eth2/11
+10   WEB                              active
+20   VLAN0020                         active    Eth2/12
+30   VLAN0030                         active
+40   VLAN0040                         active
+50   VLAN0050                         active
+
+VLAN Type         Vlan-mode
+---- -----        ----------
+1    enet         CE
+10   enet         CE
+20   enet         CE
+30   enet         CE
+40   enet         CE
+50   enet         CE
+
+Remote SPAN VLANs
+-------------------------------------------------------------------------------
+
+Primary  Secondary  Type             Ports
+-------  ---------  ---------------  -------------------------------------------

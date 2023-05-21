@@ -1,0 +1,10 @@
+......
+ Area 0.0.0.1 interface 47.1.1.7(Ethernet0/0/0)'s neighbors
+ Router ID: 4.4.4.4          Address: 47.1.1.4
+   State: Full  Mode:Nbr is  Slave  Priority: 1
+   DR: 47.1.1.7  BDR: 47.1.1.4  MTU: 0
+   Dead timer due in 30  sec
+   Retrans timer interval: 5
+   Neighbor is up for 00:00:51
+   Authentication Sequence: [ 0 ]
+......

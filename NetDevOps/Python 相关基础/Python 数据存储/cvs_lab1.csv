@@ -1,0 +1,6 @@
+hostname,vendor,model,location
+sw1,Huawei,5700,Beijing
+sw2,Huawei,3700,Shanghai
+sw3,Huawei,9300,Guangzhou
+sw4,Huawei,9306,Shenzhen
+sw5,Huawei,12800,Hangzhou

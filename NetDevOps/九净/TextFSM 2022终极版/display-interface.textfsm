@@ -1,0 +1,13 @@
+Value Name (\S+)
+Value Index (\S+)
+Value PhyState (\S+)
+Value ProtocolState (\S+)
+Value Desc (\S+)
+Value LastPhyUpTime (.+)
+
+Start
+ ^${Name} current state : ${PhyState} \(ifindex: ${Index}\)
+ ^Line protocol current state : ${ProtocolState}
+ ^Description: ${Desc}
+ ^Last physical up time   : ${LastPhyUpTime}
+ ^$$ -> Record

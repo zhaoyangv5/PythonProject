@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<a href="#">{{ username }}</a>
+<hr>
+我的年龄是{{ age }}
+<hr>
+{#我总共有{{ firends|length }}个朋友#}
+<hr>
+我的朋友是{{ firends }}
+我的女朋友是{{ firends.2 }}
+<hr>
+{#django里面是forloop，jinja2里面是loop#}
+{% for firend in firends %}
+    <li>{{ loop.index }}.{{ firend }}</li>
+{% endfor %}
+<hr>
+{% if age > 10 %}
+    大于10岁
+{% else %}
+    不大于10岁
+{% endif %}
+<hr>
+{# 这是报错是pycharm认为有错，实际没错 pycharm默认的模板引擎是Django的，需要告知pycharm目前的引擎是jinja2#}
+我的生日是: {{ date(birthday, 'Y年 m月 d日') }}
+
+<hr>
+{#我的简介是：{{ desc|safe }}#}
+<hr>
+{#没有定义的变量 {{ abcde|default:'我就是默认值' }}#}
+<hr>
+
+{# 单行注释 ctrl + / #}
+
+{# jinja2没有多行注释 #}
+我第一年的月薪是{{ money.2019 }}
+</body>
+</html>

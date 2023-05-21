@@ -1,0 +1,2 @@
+this is a book about “NetDevOps”!
+这是一本关于NetDevOps的书！

@@ -1,0 +1,61 @@
+
+Building configuration...
+Current configuration: 996 bytes
+
+version X86_RGOS 12.5(5)
+!
+username python privilege 15 password Admin@123
+!
+no cwmp
+!
+install 0 X86
+!
+sysmac 5000.0002.0001
+no ip domain-lookup
+!
+webmaster level 0 username admin secret 8 $1c$7eyy23uMQk$!b(`dhh`n<nxlvxn&tp8$.<h!dfp46#2rlzj>x#h$
+!
+no service password-encryption
+!
+redundancy
+!
+vpdn limit_rate 15
+!
+enable secret 8 $1c$7eyy23uMQk$*8d:bp|,$|<fp$>2h*,,d*,bh&~f:n$lp|d``t,0$ 
+enable password Admin@123
+enable service ssh-server
+!
+vlan 1
+!
+interface GigabitEthernet 0/0
+!
+interface GigabitEthernet 0/1
+!
+interface GigabitEthernet 0/2
+!
+interface GigabitEthernet 0/3
+!
+interface GigabitEthernet 0/4
+!
+interface GigabitEthernet 0/5
+!
+interface GigabitEthernet 0/6
+!
+interface GigabitEthernet 0/7
+!
+interface GigabitEthernet 0/8
+!
+interface GigabitEthernet 0/9
+!
+interface VLAN 1
+ ip address 192.168.31.111 255.255.255.0
+!
+line console 0
+ logging synchronous
+ exec-timeout 0 0
+line vty 0 4
+ login local
+line vty 5 15
+ login
+!
+end
