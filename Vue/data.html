@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 开发环境版本 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <a href="#">{{message}}</a>
+    <span>{{hello}}</span>
+    <hr>
+<!--    <a href="http://www.baidu.com">戳我有惊喜</a>-->
+    <a v-bind:href="url">戳我有惊喜</a>
+    <br>
+<!--    v-bind 简写-->
+    <hr>
+    <span :title="showmessage">鼠标放在这里显示时间</span>
+</div>
+</body>
+<script type="text/javascript">
+  var vm = new Vue({
+    el : "#app",
+    data : {
+        message:'领取优惠券',
+        hello : 'world',
+        url : 'http://www.baidu.com',
+        showmessage:'当前的时间是' + new Date().toLocaleString()
+    }
+  })
+</script>
+</html>
