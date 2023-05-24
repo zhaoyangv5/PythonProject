@@ -5,18 +5,50 @@
     <title></title>
     <!-- 开发环境版本 -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 导入axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
 <div id="app">
-    <span>{{message}}</span>
+{#  vue的大胡子语法 和 Django/flask的模板语法 冲突了 需要更改delimiters: ['[[',']]']#}
+    <span>[[message]]</span>
+    <button @click="login">登录</button>
+    <hr>
+    [[ username ]]
+    <hr>
+    <button @click="post">post_request</button>
 </div>
 </body>
 <script type="text/javascript">
   var vm = new Vue({
-    el : "#app",
-    data : {
-        message:'领取优惠券',
-    }
+      el : "#app",
+        {#改变VUE语法#}
+      delimiters: ['[[',']]'],
+      data : {
+          message:'领取优惠券',
+          username:'',
+        },
+      methods : {
+          login :function() {
+              alert('登录成功')
+          {#这里发送ajax#}
+              var url = 'http://127.0.0.1:8000/rece/?username=zhaoyang&password=python'
+              {#then catch用 => 箭头函数 this#}
+              axios.get(url).then((response)=>{
+                    {# response响应---> response.data 返回数据#}
+                    console.log(response.data.info.username)
+                    this.username = response.data.info.username
+              }).catch((error)=>{
+                    console.log(error)
+              })
+          },
+          post : function() {
+
+              axios.post(url).then((response) => {
+
+              })
+          }
+      }
   })
 </script>
 </html>

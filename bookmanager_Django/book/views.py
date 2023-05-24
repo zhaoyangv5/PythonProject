@@ -127,3 +127,5 @@ class HomeView(View):
         # return render(request,'detail.html')
         # return render(request, 'home_django.html', context=context)
         return render(request, 'home_jinja2.html', context=context)
+
+
